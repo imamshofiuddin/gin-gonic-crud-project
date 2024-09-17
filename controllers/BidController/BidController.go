@@ -1,6 +1,7 @@
 package BidController
 
 import (
+	"crud-project/controllers/TimeSeriesDataController"
 	"crud-project/models"
 	"net/http"
 
@@ -46,5 +47,6 @@ func Create(c *gin.Context) {
 	}
 
 	models.DB.Create(&bid)
+	TimeSeriesDataController.AddBid(int(bid.ItemId))
 	c.JSON(http.StatusOK, gin.H{"Bid": bid})
 }

@@ -9,7 +9,6 @@ import (
 )
 
 func Index(c *gin.Context) {
-
 	var products []models.Product
 
 	models.DB.Find(&products)
@@ -36,7 +35,6 @@ func Show(c *gin.Context) {
 }
 
 func Create(c *gin.Context) {
-
 	var product models.Product
 
 	if err := c.ShouldBindJSON(&product); err != nil {
@@ -67,7 +65,6 @@ func Update(c *gin.Context) {
 }
 
 func Delete(c *gin.Context) {
-
 	var product models.Product
 
 	id := c.Param("id")
